@@ -38,7 +38,12 @@
         "no-redeclare": "error",
         "brace-style": "error",
         "indent": ["error", 2],
-        "quotes": ["error", "single"],
+        "quotes": [
+            "error", 
+            "single", 
+            "backtick", 
+            "avoid-escape"
+        ],
         "semi": ["error", "always"],
         "radix": "off"
     },
