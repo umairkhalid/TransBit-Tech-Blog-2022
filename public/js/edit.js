@@ -1,4 +1,4 @@
-const postId = document.querySelector('input[name="post-id"]').value.trim();
+const post_id = document.querySelector('input[name="post-id"]').value.trim();
 
 // const id = window.location.toString().split('/')[
 //   window.location.toString().split('/').length - 1
@@ -13,7 +13,7 @@ const editFormHandler = async (event) => {
   console.log(title);
   console.log(content);
 
-  const response = await fetch(`/api/post/${postId}`, {
+  const response = await fetch(`/api/post/${post_id}`, {
     method: 'PUT',
     body: JSON.stringify({
       title,
@@ -34,7 +34,7 @@ const editFormHandler = async (event) => {
 };
 
 const deleteClickHandler = async () => {
-  await fetch(`/api/post/${postId}`, {
+  await fetch(`/api/post/${post_id}`, {
     method: 'DELETE'
   });
 

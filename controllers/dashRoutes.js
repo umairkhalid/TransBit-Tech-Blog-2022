@@ -9,12 +9,7 @@ router.get('/', withAuth, async (req, res) => {
 
     const postData = await Post.findAll({
       where:{'userId': req.session.userId},
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
+      include: [User],
     });
     // this sanitizes the data we just got from the db above (you have to create the above)
     const posts = postData.map((post) => post.get({ plain: true }));
@@ -48,7 +43,6 @@ router.get('/edit/:id', withAuth, async (req, res) => {
     if (postData) {
       // serializing the data
       const post = postData.get({ plain: true });
-      console.log(post);
       // which view should we render if we want to edit a post?
       res.render('edit-post', {
         layout: 'dashboard',

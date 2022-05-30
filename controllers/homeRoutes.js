@@ -4,7 +4,7 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    const postTitle = 'TransBit Tech Blog 2022!';
+    const pageTitle = 'TransBit Tech Blog 2022!';
     // Get all posts and JOIN with user data
     const postData = await Post.findAll({
       include: [
@@ -13,9 +13,6 @@ router.get('/', async (req, res) => {
           attributes: ['name'],
         },
       ],
-      where: {
-        is_deleted: false
-      },
       order: [
         ['date_created', 'DESC'],
       ]
@@ -26,7 +23,7 @@ router.get('/', async (req, res) => {
 
     // Pass serialized data and session flag into template
     res.render('homepage', {
-      postTitle,
+      pageTitle,
       posts,
       logged_in: req.session.logged_in
     });
@@ -37,8 +34,11 @@ router.get('/', async (req, res) => {
 
 router.get('/post/:id', withAuth, async (req, res) => {
   try {
-    const postTitle = 'Posts';
-    const postData = await Post.findByPk(req.params.id, {
+    const pageTitle = 'Posts';
+    const postData = await Post.findOne({
+      where: {
+        id: req.params.id
+      },
       include: [
         User,
         {
@@ -46,10 +46,6 @@ router.get('/post/:id', withAuth, async (req, res) => {
           include: [User],
         },
       ],
-      where: {
-        user_id: req.session.user_id,
-        is_deleted: false,
-      },
       order: [
         ['date_created', 'DESC'],
       ]
@@ -58,9 +54,9 @@ router.get('/post/:id', withAuth, async (req, res) => {
     if (postData) {
       const post = postData.get({ plain: true });
 
-      res.render('post', {
-        postTitle,
-        ...post,
+      res.render('single-post', {
+        pageTitle,
+        post,
         logged_in: req.session.logged_in
       });
     } else {
@@ -78,6 +74,7 @@ router.get('/login', (req, res) => {
     return;
   }
 
+  //const pageTitle = 'TransBit Tech Blog 2022';
   res.render('login');
 });
 
@@ -88,6 +85,7 @@ router.get('/signup', (req, res) => {
     return;
   }
 
+  //const pageTitle = 'TransBit Tech Blog 2022';
   res.render('signup');
 });
 
