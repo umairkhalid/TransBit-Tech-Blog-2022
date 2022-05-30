@@ -8,8 +8,15 @@ router.get('/', withAuth, async (req, res) => {
     // store the results of the db query in a variable called postData. should use something that "finds all" from the Post model. may need a where clause!
 
     const postData = await Post.findAll({
-      where:{'userId': req.session.userId},
-      include: [User],
+      where:{
+        'user_id': req.session.user_id
+      },
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
     });
     // this sanitizes the data we just got from the db above (you have to create the above)
     const posts = postData.map((post) => post.get({ plain: true }));

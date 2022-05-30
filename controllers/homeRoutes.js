@@ -4,7 +4,7 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    const pageTitle = 'TransBit Tech Blog 2022!';
+    // const pageTitle = 'TransBit Tech Blog 2022!';
     // Get all posts and JOIN with user data
     const postData = await Post.findAll({
       include: [
@@ -23,7 +23,6 @@ router.get('/', async (req, res) => {
 
     // Pass serialized data and session flag into template
     res.render('homepage', {
-      pageTitle,
       posts,
       logged_in: req.session.logged_in
     });
@@ -34,7 +33,7 @@ router.get('/', async (req, res) => {
 
 router.get('/post/:id', withAuth, async (req, res) => {
   try {
-    const pageTitle = 'Posts';
+    //const pageTitle = 'Posts';
     const postData = await Post.findOne({
       where: {
         id: req.params.id
@@ -55,7 +54,6 @@ router.get('/post/:id', withAuth, async (req, res) => {
       const post = postData.get({ plain: true });
 
       res.render('single-post', {
-        pageTitle,
         post,
         logged_in: req.session.logged_in
       });
