@@ -6,6 +6,10 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth, async (req, res) => {
   try {
     // store the results of the db query in a variable called postData. should use something that "finds all" from the Post model. may need a where clause!
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Post }],
+    });
 
     const postData = await Post.findAll({
       where:{
@@ -18,6 +22,7 @@ router.get('/', withAuth, async (req, res) => {
         },
       ],
     });
+    const user = userData.get({ plain: true });
     // this sanitizes the data we just got from the db above (you have to create the above)
     const posts = postData.map((post) => post.get({ plain: true }));
     // fill in the view to be rendered -DONE!
@@ -25,7 +30,9 @@ router.get('/', withAuth, async (req, res) => {
       // this is how we specify a different layout other than main! no change needed
       layout: 'dashboard',
       // coming from line 10 above, no change needed
+      ...user,
       posts,
+      logged_in: true
     });
   } catch (err) {
     res.redirect('login');

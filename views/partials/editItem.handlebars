@@ -1,12 +1,26 @@
-<div class="card-body">
-  <a href="dashboard/edit/{{id}}">
-    <div class="card-header flex-row justify-space-between">
-      <div class="col-8">Post Title: {{title}}</div>
-      <div class="col-4">posted by {{user.name}} on {{format_date date_created}}</div>
-    </div>  
-  </a>
-  {{!-- <div class="col-12">
-    <label class="form-label">Content:</label>
-    <textarea class="" data-number="9">{{postContent}}</textarea>
-  </div> --}}
-</div>
+<div class="mx-auto px-4 py-4 max-w-xl my-auto">
+    <div class="bg-gray-50 md:bg-white md:shadow-xl rounded-lg mb-6 ">      
+      <div class="py-1">
+        <div class="p-4">
+          <a href="dashboard/edit/{{id}}">
+            <h2 class="truncate font-bold mb-2 md:mt-4 text-2xl text-gray-800 tracking-normal">{{title}}</h2>
+          </a>         
+          <p class="break-words text-sm text-gray-700 px-2 mr-1">{{content}}</p>
+        </div>
+        <div class="flex items-center justify-between p-2 md:p-4 md:mx-4">
+          <a target="_blank" rel="noreferrer noopener" href="https://timesofindia.indiatimes.com/india/international-space-station-to-retire-in-2030-will-fall-into-pacific-ocean-a-year-later-nasa/articleshow/89392862.cms">
+            <div class="flex items-center">
+              <div class="text-sm ml-2">
+                <p class="text-black leading-none">posted by {{user.name}}</p>
+                <p class="text-gray-700">on {{format_date date_created}}</p>
+              </div>
+            </div>
+          </a>
+          <a target="_blank" rel="noreferrer noopener" href="/post/{{id}}"
+            class="bg-green-500 hover:bg-green-600 text-white rounded-full px-8 py-2">
+            Read More
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
