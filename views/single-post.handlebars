@@ -1,28 +1,55 @@
-<div class="card">
-  <div class="card-header  flex-row justify-space-between">
-    <h2>
-      <a href="/post/{{post.id}}">
-        <div class="col-8">{{post.title}}</div>
-      </a>
-    </h2>
-    <div class="col-3">posted by {{post.user.name}} on {{format_date post.date_created}}
-    </div>
-  </div>  
-  <p class="card-body">
-   {{post.content}}
+<article class="w-full max-w-2xl mx-auto break-inside p-6 rounded-xl bg-white flex flex-col bg-clip-border">
+  <div class="flex pb-6 items-center justify-between">
+      <div class="flex">
+          <div class="flex flex-col">
+          <div>
+              <a class="inline-block text-lg font-bold" href="#">posted by {{post.user.name}}</a>
+          </div>
+          <div class="text-slate-500">
+              on {{format_date post.date_created}}
+          </div>
+          </div>
+      </div>
+  </div>
+  <h2 class="text-3xl font-extrabold mb-2">
+    <a href="/post/{{post.id}}">
+      <div class="col-8">{{post.title}}</div>
+    </a>
+  </h2>
+  <p>
+    {{post.content}}
   </p>
-</div>
-<input type="hidden" name="post-id" value="{{post.id}}"/>
-{{!-- {{#if loggedIn}} --}}
-<div class="card">
-  <div class="card-header"></div>
-  <form class="card-body" id="new-comment-form">
-    
-    <p class="form-label">Comment:</p>
-    <textarea class="form-input" id="comment-body" name="comment-body"></textarea>
-    <button type="submit" class="btn btn-primary">Submit:</button>
-  </form>
-{{> comments post.comments}}
-</div>
+  <div class="py-4">
+  </div>
+  <input type="hidden" name="post-id" value="{{post.id}}"/>
+  <div class="relative">
+    <form class="card-body" id="new-comment-form">
+      <textarea
+          class="form-input pt-2 pb-2 pl-3 w-full h-11 bg-slate-100 rounded-lg placeholder:text-slate-600 font-medium pr-20"
+          type="text" placeholder="Write a comment" name="comment-body" id="comment-body"></textarea>
+      <span class="flex absolute right-3 top-2/4 -mt-3 items-center">
+      </span>
+      {{!-- <textarea class="form-input" id="comment-body" name="comment-body"></textarea> --}}
+      <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white rounded-md px-8 py-3">Submit:</button>
+    </form>
+  </div>
+  <!-- Comments content -->
+  <div class="pt-6">
+  <!-- Comment row -->
+  <div class="media flex pb-4">
+    {{> comments post.comments}}
+  </div>
+  <!-- End comments row -->
+  <!-- More comments -->
+  {{!-- <div class="w-full">
+      <a href="#"
+      class="py-3 px-4 w-full block bg-slate-100 text-center rounded-lg font-medium hover:bg-slate-200 transition ease-in-out delay-75">Show
+      more comments</a>
+  </div>
+  <!-- End More comments -->
+  </div>
+  <!-- End Comments content --> --}}
+</article>
+
 {{!-- {{/if}} --}}
 <script src="/js/comment.js"></script>
