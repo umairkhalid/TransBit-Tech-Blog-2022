@@ -1,42 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="h-full bg-gray-100" lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Ghibli">
   <title>Home | TransBit Tech Blog 2022</title>
-  <link href="/images/favicon.ico" rel="shortcut icon">
-  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/x-icon" href="/public/images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body class="flex-column min-100-vh">
-  <nav class="navbar">
-    <ul>
-      <li class="li-inline nav-item"><a href="/">Home</a></li>
-      <li class="li-inline nav-item"><a href="/dashboard">Dashboard</a></li>
-      <!-- Conditionally render login or logout links -->        
-      {{#if logged_in}}
-      <li class="li-inline nav-item"><a href="#" id="logout-link">Logout</a></li>
-      {{else}}
-      <li class="li-inline nav-item"><a href="/login">Login</a></li>
-      {{/if}}
-    </ul>
+<!-- This example requires Tailwind CSS v2.0+ -->
+<!--
+  This example requires updating your template:
+
+  ```
+  <html class="h-full bg-gray-100">
+  <body class="h-full">
+  ```
+-->
+<div class="min-h-full">
+  <nav class="bg-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <img class="h-8 w-8" src="https://kdapz.com/wp-content/uploads/2021/11/whitetechykd.png" alt="Workflow">
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-4">
+              <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+              <a href="/" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Home</a>
+      
+              <a href="/dashboard" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
+              <!-- Conditionally render login or logout links -->        
+              {{#if logged_in}}
+              <a href="#" id="logout-link" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Logout</a>
+              {{else}}
+              <a href="/login" class="text-gray-300 hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium">Login</a>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+        <div class="-mr-2 flex md:hidden">
+          <!-- Mobile menu button -->
+          <button type="button" class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <!--
+              Heroicon name: outline/menu
+
+              Menu open: "hidden", Menu closed: "block"
+            -->
+            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <!--
+              Heroicon name: outline/x
+
+              Menu open: "block", Menu closed: "hidden"
+            -->
+            <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu, show/hide based on menu state. -->
+    <div class="md:hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+        <a href="/" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Home</a>
+
+        <a href="/Dashboard" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</a>
+        {{#if logged_in}}
+        <a href="#" id="logout-link" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Logout</a>
+        {{else}}
+        <a href="/login" class="text-gray-300 hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium">Login</a>
+        {{/if}}
+      </div>
+    </div>
   </nav>
+
+  <header class="bg-white shadow">
+    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl font-bold text-gray-900">TransBit Tech Blog 2022</h1>
+    </div>
+  </header>
+  <main class="col-auto">
+    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+      {{{body}}}
+    </div>
+  </main>
+</div>
 
   <header class="hero">
     <h1 class="app-title"><a href="/">TransBit Tech Blog 2022</a></h1>
   </header>
 
-  <main class="col-auto">
-    {{{body}}}
-  </main>
-
   <footer class="flex-row justify-center">
     &copy; TransBit Tech Blog 2022
   </footer>
-</body>
+
 
 </html>
 {{#if logged_in}}
