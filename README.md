@@ -1,10 +1,12 @@
 # TransBit-Tech-Blog-2022
 
+![Github licence](https://img.shields.io/badge/license-MIT-blue)
+
 ## Description
 
 Writing about tech can be just as important as making it. Developers spend plenty of time creating new applications and debugging existing codebases, but most developers also spend at least some of their time reading and writing about technical concepts, recent advancements, and new technologies. A simple Google search for any concept covered in this course returns thousands of think pieces and tutorials from developers of all skill levels!
 
-Your task this week is to build a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. You’ll build this site completely from scratch and deploy it to Heroku. Your app will follow the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
+This is a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. App is following the MVC paradigm in its architectural structure, and uses Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication. It was build completely from scratch and deployed to Heroku.
 
 ## User Story
 
@@ -56,77 +58,52 @@ THEN I am able to view comments but I am prompted to log in again before I can a
 
 The following animation demonstrates the application functionality:
 
-![Animation cycles through signing into the app, clicking on buttons, and updating blog posts.](./Assets/14-mvc-homework-demo-01.gif) 
+![Animation cycles through signing into the app, clicking on buttons, and updating blog posts.](./public/images/demo.gif) 
 
-## Getting Started
+## Heroku Deployment
 
-Your application’s folder structure must follow the Model-View-Controller paradigm. You’ll need to use the [express-handlebars](https://www.npmjs.com/package/express-handlebars) package to implement Handlebars.js for your Views, use the [MySQL2](https://www.npmjs.com/package/mysql2) and [Sequelize](https://www.npmjs.com/package/sequelize) packages to connect to a MySQL database for your Models, and create an Express.js API for your Controllers.
+https://secret-brook-70569.herokuapp.com/
 
-You’ll also need the [dotenv package](https://www.npmjs.com/package/dotenv) to use environment variables, the [bcrypt package](https://www.npmjs.com/package/bcrypt) to hash passwords, and the [express-session](https://www.npmjs.com/package/express-session) and [connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize) packages to add authentication.
+## Table-of-Contents
+* [Installation](#installation)
+* [Usage](#usage)
+* [Technologies](#technologies)
+* [License](#license)
+* [Contributing](#contributing)
+* [Questions](#questions)
 
-**Note**: The [express-session](https://www.npmjs.com/package/express-session) package stores the session data on the client in a cookie. When you are idle on the site for more than a set time, the cookie will expire and you will be required to log in again to start a new session. This is the default behavior and you do not have to do anything to your application other than implement the npm package.
+## [Installation](#table-of-contents)
 
-## Grading Requirements
+```
+npm i
 
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
+npm run seed
 
-This Challenge is graded based on the following criteria:
+npm start
+```
+## [Usage](#table-of-contents)
+This project was built in Node.js using the express and sequelize packages utilizing the MVC paradigm.
 
-### Technical Acceptance Criteria: 40%
+## [Technologies](#table-of-contents)
+* JS
+* Node.js
+* MongoDB
+* Handlebars
+* Model-View-Controller
+* dotenv
+* MySQL
+* Cookies
+* Sessions
 
-* Satisfies all of the preceding acceptance criteria plus the following:
+## [License](#table-of-contents)
+The application is covered under the following license: [MIT](https://choosealicense.com/licenses/mit/)
 
-    * Application’s folder structure follows the Model-View-Controller paradigm.
+## [Contributing](#table-of-contents)
+To contribute to this application, create a pull request or fork the repo.
 
-    * Uses the [express-handlebars](https://www.npmjs.com/package/express-handlebars) package to implement Handlebars.js for your Views.
-
-    * Application must be deployed to Heroku.
-
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository contains application code.
-
-### Application Quality: 15%
-
-* User experience is intuitive and easy to navigate.
-
-* User interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the Challenge instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality readme file with description, screenshot, and link to deployed application.
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
+## [Questions](#table-of-contents)
+If you have any question about the repo, open an issue or contact me directly at [Email: umairkhalid@fastmail.fm](mailto:umairkhalid@fastmail.fm).
+You can find more of my work at [GitHub](https://github.com/umairkhalid).
 
 ---
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+© 2022 Umair Khalid. Confidential and Proprietary. All Rights Reserved.
