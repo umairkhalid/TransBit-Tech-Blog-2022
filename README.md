@@ -1,5 +1,10 @@
 # TransBit-Tech-Blog-2022
 
+![HTML](https://img.shields.io/badge/-NODE-orange) ![JS](https://img.shields.io/badge/-JS-yellow) ![Node](https://img.shields.io/badge/-MySQL2-darkgreen)
+![JEST](https://img.shields.io/badge/-SQL-darkred) ![Sequelize](https://img.shields.io/badge/-Sequelize-blue) ![Dotenv](https://img.shields.io/badge/-Dotenv-purple) ![Express](https://img.shields.io/badge/Express-indigo) ![Bcrypt](https://img.shields.io/badge/Bcrypt-white)
+
+![Express-session](https://img.shields.io/badge/Express-session-brown) ![Express-handlebars](https://img.shields.io/badge/Express-handlebars-red) ![CSS-Tailwind](https://img.shields.io/badge/CSS-Tailwind-darkgreen)
+
 ![Github licence](https://img.shields.io/badge/license-MIT-blue)
 
 ## Description
