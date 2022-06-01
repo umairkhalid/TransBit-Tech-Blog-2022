@@ -24,11 +24,8 @@ const editFormHandler = async (event) => {
     }
   });
 
-  console.log(response);
-  if (response.ok) {
-    document.location.replace('/dashboard');
-  } else {
-    alert('Failed to update your post');
+  if (!response.ok) {
+    //alert('Failed to update your post');
   }
   document.location.replace('/dashboard');
 };
@@ -40,6 +37,7 @@ const deleteClickHandler = async () => {
 
   document.location.replace('/dashboard');
 };
+
 // WHY ONE BUTTON IS SUBMIT AND THE OTHER IS CLICK?
 document
   .querySelector('#edit-post-form')

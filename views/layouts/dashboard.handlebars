@@ -35,16 +35,14 @@
             <div class="ml-10 flex items-baseline space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <a href="/" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Home</a>
-      
               <a href="/dashboard" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
-              
               <a href="#" id="logout-link" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Logout</a>
             </div>
           </div>
         </div>
         <div class="-mr-2 flex md:hidden">
           <!-- Mobile menu button -->
-          <button type="button" class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+          <button id="togglemebutton" type="button" class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-controls="resultnav" @click="open = !open" aria-expanded="false" x-bind:aria-expanded="open.toString()">
             <span class="sr-only">Open main menu</span>
             <!--
               Heroicon name: outline/menu
@@ -68,13 +66,11 @@
     </div>
 
     <!-- Mobile menu, show/hide based on menu state. -->
-    <div class="md:hidden" id="mobile-menu">
+    <div class="md:hidden" id="resultnav">
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
         <a href="/" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Home</a>
-
         <a href="/Dashboard" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</a>
-
         <a href="#" id="logout-link" class="text-gray-300 hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium">Logout</a>
       </div>
     </div>
@@ -93,15 +89,13 @@
   </main>
 </div>
 
-  <footer class="footer flex-row justify-center">
-    <center>
-    <a target="_blank" rel="noreferrer noopener" href="/dashboard/new"
-      class="bg-blue-500 hover:bg-blue-600 text-white rounded-md px-8 py-3">
-      ➕ New Post
-    </a>
-    </center>
-  </footer>
-
+<footer id="footer" class="bg-gray-800 text-center lg:text-left">
+<div class="text-purple-50 text-center p-4" style="background-color: rgba(0, 0, 0, 0.2);">
+  © 2022 Copyright:
+  <a class="text-yellow-300" href="#">TransBit Tech Blog 2022</a>
+</div>
+</footer>
 
 </html>
 <script src="/js/logout.js"></script>
+<script src="/js/passive.js"></script>

@@ -2,13 +2,12 @@
     <div class="bg-gray-50 md:bg-white md:shadow-xl rounded-lg mb-6 ">      
       <div class="py-1">
         <div class="p-4">
-          <a href="dashboard/edit/{{id}}">
+          <a href="/post/{{id}}">
             <h2 class="truncate font-bold mb-2 md:mt-4 text-2xl text-gray-800 tracking-normal">{{title}}</h2>
           </a>         
           <p class="break-words text-sm text-gray-700 px-2 mr-1">{{content}}</p>
         </div>
         <div class="flex items-center justify-between p-2 md:p-4 md:mx-4">
-          <a target="_blank" rel="noreferrer noopener" href="https://timesofindia.indiatimes.com/india/international-space-station-to-retire-in-2030-will-fall-into-pacific-ocean-a-year-later-nasa/articleshow/89392862.cms">
             <div class="flex items-center">
               <div class="text-sm ml-2">
                 <p class="text-black leading-none">posted by {{user.name}}</p>
@@ -16,11 +15,16 @@
               </div>
             </div>
           </a>
-          <a target="_blank" rel="noreferrer noopener" href="/post/{{id}}"
+          <a rel="noreferrer noopener" href="/post/{{id}}"
             class="bg-green-500 hover:bg-green-600 text-white rounded-full px-8 py-2">
             Read More
           </a>
         </div>
       </div>
     </div>
+    <a rel="noreferrer noopener" href="dashboard/edit/{{id}}"
+      class="bg-red-400 hover:bg-red-500 text-white rounded-md px-5 py-1">
+      Edit
+    </a>
   </div>
+  
