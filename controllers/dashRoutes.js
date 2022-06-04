@@ -23,6 +23,7 @@ router.get('/', withAuth, async (req, res) => {
       ],
     });
     const user = userData.get({ plain: true });
+    console.log(userData);
     // this sanitizes the data we just got from the db above (you have to create the above)
     const posts = postData.map((post) => post.get({ plain: true }));
     // fill in the view to be rendered -DONE!
